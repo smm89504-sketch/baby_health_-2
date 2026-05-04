@@ -1,0 +1,91 @@
+email:
+rama@gmail.com
+----------------
+pass:
+100200300@ABc
+-----------------
+-----------------
+email:
+huda@clinic.com
+-----------------
+pass:
+100200300@ABc
+-----------------
+
+email:
+admin@babyhealthtracker.com
+-----------------
+pass:
+Olafatnahola__**123123123
+
+......................
+dr.ahmad@clinic.com
+Olafatnahola__**123123123
+
+
+لتشغيل الموقع نقوم بالتالي:
+1- استيراد قاعده البيانات بإسم baby_tracker
+2-وضع الملفات ضمن xampp\htdocs
+3-تشغيل بايثون من التيرمنال نكتب 
+pip install flask flask-cors numpy
+python app.py
+
+
+ملاحظة: اذا لم تقم بتثبيت بايثون على الجهاز لن يعمل الكود يجب عليك تحميل بايثون من الرابط:
+https://www.python.org/downloads/
+خطوات التحميل:
+
+افتح الرابط أعلاه.
+
+اختار النسخة المناسبة لنظام التشغيل:
+
+Windows → اضغط على Download Python 3.x.x
+
+macOS → اضغط على النسخة الخاصة بـ macOS
+
+Linux → عادة يستخدم package manager مثل apt أو yum
+
+
+
+أثناء تثبيت Python على Windows، تأكد تفعيل خيار “Add Python to PATH” قبل الضغط على Install.
+
+ثم نقوم بتحميل المكتبات
+pip install flask flask-cors numpy
+
+ثم ننفذ التعليمات التالية
+python -m venv venv
+venv\Scripts\activate   # على Windows
+pip install flask flask-cors numpy
+
+
+حتى يعمل نظام الاشعارات يجب ان تتبع الخطوات التالية:
+1- افتح xampp افتح php.ini و ابحث عن قسم mail function
+ثم عدل القيم التالية:
+[mail function]
+SMTP = smtp.gmail.com        
+smtp_port = 587
+sendmail_from = your@domain.com
+sendmail_path = "\"C:\xampp\sendmail\sendmail.exe\" -t"
+
+يجب ازالة الفاصلة المنقوطة ; و تعديل القيم بحيث نضع الايميل الخاص بنا الذي سنستخدمه لارسال الاشعار للايميل
+2- نذهب الى المسار xampp\sendmail\sendmail.ini نفتح الملف و نعدل القيم حسب التالي\
+
+
+[sendmail]
+
+smtp_server=smtp.gmail.com
+smtp_port=587
+smtp_ssl=tls
+
+auth_username=youremail@gmail.com
+auth_password=your_app_password
+
+default_domain=gmail.com
+
+error_logfile=error.log
+debug_logfile=debug.log
+
+force_sender=youremail@gmail.com
+
+3- نوقف xampp و نرجع نشغله لاخذ التعديلات
+
