@@ -1,0 +1,476 @@
+:root {
+  --purple-1: #f5f0ff;
+  --purple-2: #ede4f5;
+  --purple-3: #d4c1e8;
+  --purple-4: #b8a3d9;
+  --purple-5: #9d84ca;
+  --blue-accent: #6b5eb2;
+  --accent: #c5b3e0;
+  --text-dark: #3d2c4d;
+  --text: #4e3a5a;
+  --text-light: #7a6880;
+  --white: #ffffff;
+  --shadow-sm: 0 6px 20px rgba(157, 132, 202, 0.08);
+  --shadow-md: 0 12px 35px rgba(157, 132, 202, 0.12);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #3b82f6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Cairo", "Tajawal", system-ui, sans-serif;
+  background: linear-gradient(to bottom, var(--purple-1) 0%, var(--purple-2) 100%);
+  color: var(--text);
+  line-height: 1.7;
+  direction: rtl;
+  text-align: right;
+  min-height: 100vh;
+}
+
+/* ===== الشريط العلوي ===== */
+.navbar {
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 80px;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-brand h1 {
+  color: var(--purple-5);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.badge {
+  background: var(--purple-2);
+  color: var(--purple-5);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple-5), var(--blue-accent));
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+/* ===== الشريط الجانبي ===== */
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 80px;
+  width: 280px;
+  height: calc(100vh - 80px);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  overflow-y: auto;
+  z-index: 900;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 20px 0;
+}
+
+.sidebar-menu li {
+  margin: 0;
+}
+
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  color: var(--text);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu a.active {
+  background: var(--purple-1);
+  color: var(--purple-5);
+  font-weight: 600;
+}
+
+.menu-icon {
+  font-size: 1.3rem;
+}
+
+/* ===== المحتوى الرئيسي ===== */
+.main-content {
+  margin-right: 280px;
+  padding: 100px 40px 40px;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 0;
+  }
+  
+  .main-content {
+    margin-right: 0;
+    padding: 20px;
+  }
+}
+
+/* ===== الجدول ===== */
+.table-container {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-top: 30px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table thead {
+  background: var(--purple-2);
+}
+
+.admin-table th {
+  padding: 16px;
+  text-align: right;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.admin-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--purple-1);
+}
+
+.admin-table tbody tr:hover {
+  background: var(--purple-1);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+/* ===== الأزرار ===== */
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--purple-5);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--blue-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(107, 94, 178, 0.3);
+}
+
+.btn-secondary {
+  background: var(--purple-2);
+  color: var(--purple-5);
+}
+
+.btn-secondary:hover {
+  background: var(--purple-3);
+}
+
+.btn-danger {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+}
+
+.btn-danger:hover {
+  background: var(--danger);
+  color: var(--white);
+}
+
+.btn-small {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+}
+
+/* ===== البحث ===== */
+.search-box {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1px solid var(--purple-3);
+  border-radius: 8px;
+  font-family: inherit;
+  color: var(--text);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--purple-5);
+  box-shadow: 0 0 0 3px rgba(157, 132, 202, 0.1);
+}
+
+/* ===== رسائل التنبيه ===== */
+.alert {
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  position: relative;
+  z-index: 1000;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.alert-success {
+  background: rgba(16, 185, 129, 0.1);
+  border-left: 4px solid var(--success);
+  color: var(--success);
+}
+
+.alert-danger {
+  background: rgba(239, 68, 68, 0.1);
+  border-left: 4px solid var(--danger);
+  color: var(--danger);
+}
+
+.alert-warning {
+  background: rgba(245, 158, 11, 0.1);
+  border-left: 4px solid var(--warning);
+  color: var(--warning);
+}
+
+.alert-info {
+  background: rgba(59, 130, 246, 0.1);
+  border-left: 4px solid var(--info);
+  color: var(--info);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.status-active {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+}
+
+.status-warning {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning);
+}
+
+.status-danger {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+}
+
+.status-disabled {
+  background: rgba(107, 110, 117, 0.1);
+  color: #6b6e75;
+}
+
+/* ===== النموذج ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  direction: rtl;
+}
+
+.modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: var(--white);
+  padding: 30px;
+  border-radius: var(--radius-md);
+  max-width: 500px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-md);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--purple-2);
+}
+
+.modal-header h2 {
+  color: var(--text-dark);
+}
+
+.close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-light);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--purple-3);
+  border-radius: 8px;
+  font-family: inherit;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--purple-5);
+  box-shadow: 0 0 0 3px rgba(157, 132, 202, 0.1);
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+h1 {
+  color: var(--text-dark);
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+h2 {
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+h3 {
+  color: var(--text);
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+/* ===== شبكة التفاصيل ===== */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.detail-item {
+  background: var(--purple-1);
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.detail-item strong {
+  color: var(--text-dark);
+}
+
+.detail-item span {
+  color: var(--text);
+  word-break: break-word;
+}
